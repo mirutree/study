@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>name: ${name }</h2>
-<h2>message: ${message}</h2>
-
-<a href="/spring01/gugu.do">구구단</a>
+	<h2>구구단 계산</h2>
+	<form action="/spring01/gugu_result.do" method="post">
+		단을 입력하세요 
+		<input type="number" name="dan" value="3">
+		<input type="submit" value="확인">
+	</form>
 </body>
 </html>

@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>name: ${name }</h2>
-<h2>message: ${message}</h2>
-
-<a href="/spring01/gugu.do">구구단</a>
+	<h2>구구단 계산 결과</h2>
+	${result }
 </body>
 </html>
