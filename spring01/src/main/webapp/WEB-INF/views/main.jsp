@@ -10,6 +10,6 @@
 <h2>name: ${name }</h2>
 <h2>message: ${message}</h2>
 
-<a href="/spring01/gugu.do">구구단</a>
+<a href="gugu.do">구구단</a>
 </body>
 </html>
