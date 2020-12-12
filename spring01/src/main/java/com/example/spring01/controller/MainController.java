@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.spring01.model.dto.PointDto;
@@ -77,6 +78,23 @@ public class MainController {
 		// ModelAndView(url, key, value)  (전달할 페이지 주소, 변수명, 전달할 값) 값은 하나만 보낼 수 있기 때문에 map이나 Dto 등 객체로 전달하면 됨
 		return new ModelAndView("test/mav_result", "map", map);
 	}
+	
+	@RequestMapping("ajax.do")
+	public String ajax() {
+		return "test/ajax";
+	}
+//제이슨은 {"key":"value"} 로 구성된 세트. 자바스트립트 객체
+//{"name":"냉장고", "price":500000} 이런 형식으로 넘어감
+ 	@RequestMapping("background.do")
+	public @ResponseBody ProductDto background() { // url이 아니기 때문에 @ResponseBody를 붙인다
+		ProductDto dto = new ProductDto("냉장고", 500000);
+		return dto; 
+		//지금까지는 리턴에 페이지로 넘어가게 했음 근데 왜 dto? 
+		// 페이지로 넘어가는 것이 아니라 데이터 자체를 보내주는 것임. 객체 자체에 저장된 값을.
+		// 이 객체에 저장된 값이 ajax.jsp의 콜백함수 result로 되돌아간다.
+	}
+	
+	
 	
 	
 }
