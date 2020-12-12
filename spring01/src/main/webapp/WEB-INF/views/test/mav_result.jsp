@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>name: ${name }</h2>
-	<h2>age: ${age }</h2>
+	상품명 : ${map.product.name} <!-- 맵 속에 들어있는 프로덕트 변수의 네임속성-->
+	<br>
+	가격 : ${map.product.price}
 </body>
-</html> 
+</html>
