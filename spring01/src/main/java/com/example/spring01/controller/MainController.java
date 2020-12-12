@@ -50,6 +50,20 @@ public class MainController {
 		return "test/point_result";
 	}
 	
+	@RequestMapping("move.do")
+	public String move() {
+//		return "redirect:/result.do";	//페이지로 가는 것이 아님 액션으로 가는거임
+		 return "redirect:/result.do?name=kim&age=20";
+	}
+	
+	@RequestMapping("result.do")
+	public String result(Model model,
+			@RequestParam(defaultValue="noname") String name, //보내는 값이 없는데 받는 변수가 있으면 에러가 나게 됨. 그런경우 디폴트 값을 줌
+			@RequestParam(defaultValue="10") int age) {
+		model.addAttribute("name", name); // 전달된 값을 모델에 저장 후
+		model.addAttribute("age", age);
+		return "test/result"; // result.jsp로 보냄
+	}
 	
 	
 }
