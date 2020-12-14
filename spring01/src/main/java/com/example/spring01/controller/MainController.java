@@ -94,7 +94,38 @@ public class MainController {
 		// 이 객체에 저장된 값이 ajax.jsp의 콜백함수 result로 되돌아간다.
 	}
 	
+	@RequestMapping("login.do")
+	public String login() {
+		return "test/login";
+	}
 	
+	@RequestMapping("login_result.do")
+	public String login_result(@RequestParam String id, @RequestParam String pw, Model model) {
+		String result="";
+		if(id.equals("kim") && pw.equals("1234")) {
+			result="환영합니다";
+		} else {
+			result="아이디 또는 비밀번호가 틀렸습니다.";
+		}
+		model.addAttribute("result", result);
+		return "test/login_result";
+	}
+	
+	@RequestMapping("ajax_gugu.do")
+	public String ajax_gugu() {
+		return "test/ajax_gugu";
+	}
+	
+	@RequestMapping("ajax_gugu_result.do")
+	// int dan은 ajax_gugu.jsp에서 변수명 dan으로 보냈던 그 값임
+	public String ajax_gugu_result(@RequestParam(defaultValue = "3") int dan, Model model) {
+		String result = "";
+		for (int i = 1; i <= 9; i++) {
+				result += dan + "x" + i + "=" + dan * i + "<br>";
+		}
+		model.addAttribute("result", result); // 모델에 result 변수명으로 저장
+		return "test/ajax_gugu_result";
+	}
 	
 	
 }
