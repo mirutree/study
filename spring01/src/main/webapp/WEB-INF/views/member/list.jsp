@@ -22,7 +22,10 @@
 <c:forEach var="row" items="${items}">
 	<tr>
 		<td>${row.userid}</td>
-		<td>${row.name}</td>
+		<td>
+			<!-- 이름을 클릭하면 아이디를 넘김 -->
+			<a href="${path}/member/view.do?userid=${row.userid}">${row.name}</a>
+		</td>
 		<td>${row.email}</td>
 		<td>
 		<!-- formatDate value="날짜값" pattern="출력형식" -->

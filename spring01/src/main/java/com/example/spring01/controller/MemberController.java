@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.spring01.model.dao.MemberDAO;
 import com.example.spring01.model.dto.MemberDTO;
@@ -37,4 +38,22 @@ public class MemberController {
 		memberDao.insert(dto);
 		return "redirect:/member/list.do";
 	}
+	
+	// 회원 상세정보
+	@RequestMapping("member/view.do")
+	public String view(@RequestParam String userid, Model model) {
+		// 회원정보를 모델에 저장
+		model.addAttribute("dto", memberDao.detail(userid));
+		// detail.jsp로 포워딩
+		return "member/detail";
+	}
+	
+//	//회원 정보 수정
+//	@RequestMapping("member/update.do")
+//	public String update(@ModelAttribute MemberDTO dto, Model model) {
+//		//비밀번호 체크
+//		boolean
+//	}
+	
+	
 }

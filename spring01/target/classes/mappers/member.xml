@@ -3,12 +3,29 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="member">
+  
   	<select id="list" resultType="com.example.spring01.model.dto.MemberDTO">
   		select * from member order by name
   	</select>
+  	
   	<insert id="insert">
   		insert into member (userid, passwd, name, email)
   		values
   		(#{userid}, #{passwd}, #{name}, #{email})
   	</insert>
+  	
+  	<select id="detail" resultType="com.example.spring01.model.dto.MemberDTO" >
+  		select * from member
+  		where
+  		userid = #{userid}
+  	</select>
+  	
+  	<!-- 회원정보 수정 -->
+  	<update id="updete">
+  		update member
+  		set passed = #{passed},
+  		name = #{mame},
+  		email = #{email}
+  	</update>
+  	
   </mapper>
