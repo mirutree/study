@@ -20,4 +20,11 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectList("member.list");
 	}
 
+	@Override
+	public void insert(MemberDTO dto) {
+		sqlSession.insert("member.insert", dto); 
+		// 네임스페이스 member 아이디가 insert dto내용을 전달
+	}
+	
+
 }

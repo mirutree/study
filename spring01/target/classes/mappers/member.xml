@@ -6,4 +6,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	<select id="list" resultType="com.example.spring01.model.dto.MemberDTO">
   		select * from member order by name
   	</select>
+  	<insert id="insert">
+  		insert into member (userid, passwd, name, email)
+  		values
+  		(#{userid}, #{passwd}, #{name}, #{email})
+  	</insert>
   </mapper>
