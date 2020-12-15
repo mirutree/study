@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,10 @@
 		<td>${row.userid}</td>
 		<td>${row.name}</td>
 		<td>${row.email}</td>
-		<td>${row.join_date}</td>
+		<td>
+		<!-- formatDate value="날짜값" pattern="출력형식" -->
+		<fmt:formatDate value="${row.join_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+		</td>
 	</tr>
 </c:forEach>
 </table>
