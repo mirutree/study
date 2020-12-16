@@ -48,12 +48,24 @@ public class MemberController {
 		return "member/detail";
 	}
 	
-//	//회원 정보 수정
-//	@RequestMapping("member/update.do")
-//	public String update(@ModelAttribute MemberDTO dto, Model model) {
-//		//비밀번호 체크
-//		boolean
-//	}
+	//회원 정보 수정
+	@RequestMapping("member/update.do")
+	public String update(@ModelAttribute MemberDTO dto, Model model) {
+		//비밀번호 체크
+		// memberDao.check_passed에 id와 pw전달
+		boolean result = memberDao.check_passed(dto.getUserid(), dto.getPasswd()); 
+		if (result) {
+			memberDao.update(dto);
+			return "redirect:/member/list.do";
+		} else {
+			// 가입일자가 지워지지 않도록 처리
+			MemberDTO dto2 = memberDao.detail(dto.getUserid());
+			dto.setJoin_date(dto2.getJoin_date());
+			model.addAttribute("dto", dto);
+			model.addAttribute("message", "비밀번호가 일치하지 않습니다.");
+			return "member/detail";			
+		}
+	}
 	
 	
 }

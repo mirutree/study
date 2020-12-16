@@ -21,11 +21,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	</select>
   	
   	<!-- 회원정보 수정 -->
-  	<update id="updete">
+  	<update id="update">
   		update member
-  		set passed = #{passed},
-  		name = #{mame},
-  		email = #{email}
+  		set passwd = #{passwd}, name = #{name}, email = #{email}
+  		where userid = #{userid}
   	</update>
+  	
+  	<!-- 비밀번호 체크 -->
+  	<select id="check_passwd" resultType="int">
+  		select count(*) from member
+  		where userid = #{userid} and passwd = #{passwd}
+  	</select>
   	
   </mapper>

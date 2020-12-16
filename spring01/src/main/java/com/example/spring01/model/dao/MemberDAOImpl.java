@@ -1,6 +1,8 @@
 package com.example.spring01.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -50,8 +52,17 @@ public class MemberDAOImpl implements MemberDAO {
 	// 비밀번호 체크
 	@Override
 	public boolean check_passed(String userid, String passwd) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		// mybatis mapper에 전달할 값이 2개 이상인 경우
+		// dto 또는 맵으로 전달
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("userid", userid);
+		map.put("passwd", passwd);
+		int count = sqlSession.selectOne("member.check_passwd", map);
+		// 레코드가 1개이면 true, 0개이면 false 리턴
+		if (count == 1)
+			result = true;
+		return result;
 	}
 	
 
