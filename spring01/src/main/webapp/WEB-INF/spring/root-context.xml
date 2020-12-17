@@ -8,12 +8,19 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
  
  	<!-- mysql 연동 -->
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName"
-            value="com.mysql.cj.jdbc.Driver" />
-        <property name="url"  value="jdbc:mysql://localhost/web?serverTimezone=Asia/Seoul" />
-        <property name="username" value="root" />
-        <property name="password" value="root" />
+<!--     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!--         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" /> -->
+<!--         <property name="url"  value="jdbc:mysql://localhost/web?serverTimezone=Asia/Seoul" /> -->
+<!--         <property name="username" value="root" /> -->
+<!--         <property name="password" value="root" /> -->
+<!--     </bean> -->
+
+	<!-- oracle 연동 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="url"  value="jdbc:oracle:thin:@Localhost:1521/xe" />
+        <property name="username" value="web" />
+        <property name="password" value="1234" />
     </bean>
  
     <!-- SqlSessionFactory 객체 주입 -->

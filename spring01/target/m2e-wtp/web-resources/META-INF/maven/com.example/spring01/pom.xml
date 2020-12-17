@@ -29,6 +29,13 @@
 		    <version>8.0.18</version>
 		</dependency>
 		
+		<!-- oracle driver -->
+		<dependency>
+		    <groupId>com.oracle.ojdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>19.3.0.0</version>
+		</dependency>
+		
 		<!-- mybatis driver -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
