@@ -51,18 +51,19 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 비밀번호 체크
 	@Override
-	public boolean check_passed(String userid, String passwd) {
+	public boolean check_passwd(String userid, String passwd) {
 		boolean result = false;
 		// mybatis mapper에 전달할 값이 2개 이상인 경우
 		// dto 또는 맵으로 전달
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("userid", userid);
 		map.put("passwd", passwd);
+		// 쿼리에 전달할 때 2개이상 쓸 수가 없음 selectOne 함수가 1개밖에 못 보냄. 그래서 맵으로 묶음
 		int count = sqlSession.selectOne("member.check_passwd", map);
-		// 레코드가 1개이면 true, 0개이면 false 리턴
+		// 레코드가 1개이면 true, 0개이면 false 리턴. count는 1 아니면 0임
 		if (count == 1)
-			result = true;
-		return result;
+			result = true; // 1이면 (아이디,비밀번호가 일치하면) result는 true임
+		return result; 
 	}
 	
 

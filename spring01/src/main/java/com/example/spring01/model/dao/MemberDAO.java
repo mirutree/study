@@ -21,5 +21,5 @@ public interface MemberDAO {
 	public void update(MemberDTO dto);
 	
 	// 비밀번호 체크
-	public boolean check_passed(String userid, String passwd);
+	public boolean check_passwd(String userid, String passwd);
 }

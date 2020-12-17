@@ -17,8 +17,8 @@
 			});
 		// 삭제 버튼 클릭
 		$("#btnDelete").click(function() {
-			if (confirm("삭제하시겠습니까?")) {
-				document.form1.action = "/member/delete.do"
+			if (confirm("삭제하시겠습니까?")) { //confirm함수 확인버튼 누르면 true 취소누르면 false
+				document.form1.action = "/member/delete.do" //확인누르면 delete.do로 보냄
 				document.form1.submit();
 				}
 			});
