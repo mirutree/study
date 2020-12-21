@@ -2,7 +2,7 @@ package com.board.domain;
 
 import java.util.Date;
 
-public class boardVO {
+public class BoardVO {
 /*
  create table tbl_board(
   bno int not null auto_increment,
@@ -20,6 +20,7 @@ public class boardVO {
 	private String writer;
 	private Date regDate;
 	private int viewCnt;
+
 	public int getBno() {
 		return bno;
 	}
