@@ -52,6 +52,17 @@ public class BoardController {
 		model.addAttribute("viewview", vo); //모델을 이용하여 뷰에 데이터를 넘겨줌. 넘겨주는 모델의 이름은 viewview
 	}
 	
-	
+	// 게시물 수정
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void getModify(@RequestParam("bno") int bno, Model model) throws Exception {
+		BoardVO vo = service.view(bno);
+		model.addAttribute("viewview", vo);
+	}
+	// 게시물 수정
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String postModify(BoardVO vo) throws Exception {
+		service.modify(vo);
+		return "redirect:/board/view?bno=" + vo.getBno();
+	}
 
 }

@@ -34,6 +34,12 @@ public class BoardDAOImpl implements BoardDAO {
 	public BoardVO view(int bno) throws Exception {
 		return sql.selectOne(namespace + ".view", bno);
 	}
+
+	// 게시물 수정
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		sql.update(namespace + ".modify", vo);
+	}
 	
 	
 
