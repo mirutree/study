@@ -20,7 +20,8 @@
 	<input type="text" name="content" value="${viewview.content}" /><br />
 	
 	<div>
-	<a href="/board/modify?bno=${viewview.bno}">게시물 수정</a>
+	<a href="/board/modify?bno=${viewview.bno}">수정</a>
+	<a href="/board/delete?bno=${viewview.bno}">삭제</a>
 	</div>
 	
 	<div>
