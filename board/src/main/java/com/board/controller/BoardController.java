@@ -72,6 +72,23 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
+	// 게시물 목록 + 페이징 추가
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void getListPage(Model model, @RequestParam("num") int num) throws Exception {	
+		// 총 게시글 갯수
+		int count = service.count();
+		// 한 페이지에 출력할 게시글 갯수
+		int postNum = 10;
+		// 하단 페이징 번호 ([총 게시글 갯수/ 한 페이지에 출력할 게시글 개수]의 올림)
+		int pageNum = (int)Math.ceil((double)count/postNum);
+		// 출력할 게시물
+		int displayPost = (num - 1) * postNum;
+		
+		List <BoardVO> list = null;
+		list = service.listPage(displayPost, pageNum);
+		model.addAttribute("list", list);
+		model.addAttribute("pageNum", pageNum);
+	}
 	
 	
 
