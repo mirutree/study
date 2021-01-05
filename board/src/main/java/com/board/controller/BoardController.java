@@ -109,6 +109,9 @@ public class BoardController {
 		// 이전 및 다음 
 		model.addAttribute("prev", prev);
 		model.addAttribute("next", next);
+		
+		// 현재 페이지
+		model.addAttribute("select", num);
 	}
 	
 	
